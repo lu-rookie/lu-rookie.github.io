@@ -1,0 +1,194 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Rspress v1.16.2"><title data-rh="true">React-Hook 使用指南 - LeYi</title><meta data-rh="true" name="description" content="个人笔记，记录一切"/>
+<script id="check-dark-light">
+;(() => {
+  const saved = localStorage.getItem('rspress-theme-appearance')
+  const prefereDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  if (!saved || saved === 'auto' ? prefereDark : saved === 'dark') {
+    document.documentElement.classList.add('dark')
+  }
+})()
+</script>
+<title>LeYi</title><link rel="icon" href="/rspress-icon.png"><script defer="defer" src="/static/js/styles.ad932c9c.js"></script><script defer="defer" src="/static/js/lib-lodash.33dc846c.js"></script><script defer="defer" src="/static/js/lib-polyfill.c4fb28bb.js"></script><script defer="defer" src="/static/js/lib-react.a9208419.js"></script><script defer="defer" src="/static/js/lib-router.4715674c.js"></script><script defer="defer" src="/static/js/index.0b422366.js"></script><link href="/static/css/styles.837a4125.css" rel="stylesheet"></head><body ><div id="root"><div><div class="navContainer_f6cde rspress-nav px-6 " style="position:sticky"><div class="container_f6cde flex justify-between items-center h-full"><div class="navBarTitle_f6cde"><a href="/" class="flex items-center w-full h-full text-base font-semibold transition-opacity duration-300 hover:opacity-60"></a></div><div class="undefined flex flex-1 justify-end items-center"><div class="rightNav_f6cde"><div class="flex sm:flex-1 items-center sm:pl-4 sm:pr-2"><div class="rspress-nav-search-button navSearchButton_6e282"><button><svg width="18" height="18" viewBox="0 0 32 32"><path fill="var(--rp-c-gray)" d="m29 27.586-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29ZM4 13a9 9 0 1 1 9 9 9.01 9.01 0 0 1-9-9Z"></path></svg><p class="searchWord_6e282">Search Docs</p><div style="opacity:0"><span></span><span>K</span></div></button></div><div class="mobileNavSearchButton_6e282"><svg width="24" height="24" viewBox="0 0 32 32"><path fill="var(--rp-c-gray)" d="m29 27.586-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29ZM4 13a9 9 0 1 1 9 9 9.01 9.01 0 0 1-9-9Z"></path></svg></div></div><div class="rspress-nav-menu menu h-14"><a class="link_03735  cursor-pointer" target="" href="/note/index.html"><div class="rspress-nav-menu-item singleItem_f6cde activeItem_f6cde text-sm font-medium mx-1.5 px-3 py-2 flex items-center">笔记</div></a><a class="link_03735  cursor-pointer" target="" href="/markdown/index.html"><div class="rspress-nav-menu-item singleItem_f6cde  text-sm font-medium mx-1.5 px-3 py-2 flex items-center">Markdown</div></a></div><div class="flex-center flex-row"><div class="mx-2"><div class="md:mr-2 rspress-nav-appearance"><div class="p-1 border border-solid border-gray-300 text-gray-400  cursor-pointer rounded-md hover:border-gray-600 hover:text-gray-600 dark:hover:border-gray-200 dark:hover:text-gray-200 transition-all duration-300 w-7 h-7"></div></div></div><div class="social-links menu-item_93d67 flex-center relative"><div class="flex-center h-full gap-x-4 transition-colors duration-300 md:mr-2"><a href="https://github.com/web-infra-dev/rspress" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_93d67"><svg role="img" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></div></a></div></div></div></div><div class="mobileNavMenu_f6cde"><div class="navScreen_457e8 " id="navScreen"><div class="container_457e8"><div class="navMenu_457e8"><div class="navMenuItem_457e8 w-full"><a class="link_03735  cursor-pointer" target="" href="/note/index.html"><div class="rspress-nav-menu-item singleItem_f6cde activeItem_f6cde text-sm font-medium mx-1.5 px-3 py-2 flex items-center">笔记</div></a></div><div class="navMenuItem_457e8 w-full"><a class="link_03735  cursor-pointer" target="" href="/markdown/index.html"><div class="rspress-nav-menu-item singleItem_f6cde  text-sm font-medium mx-1.5 px-3 py-2 flex items-center">Markdown</div></a></div></div><div class="flex-center flex-col gap-2"><div class="mt-2 navAppearance_457e8 flex justify-center"></div><div class="social-links menu-item_93d67 flex-center relative"><div class="flex-center h-full gap-x-4 transition-colors duration-300 md:mr-2"><a href="https://github.com/web-infra-dev/rspress" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_93d67"><svg role="img" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></div></a></div></div></div></div></div><button aria-label="mobile hamburger" class=" navHamburger_e7b06 text-gray-500"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><circle cx="8" cy="16" r="2" fill="currentColor"></circle><circle cx="16" cy="16" r="2" fill="currentColor"></circle><circle cx="24" cy="16" r="2" fill="currentColor"></circle></svg></button></div></div></div></div><section><div class="docLayout_edeb4 pt-0"><div class="rspress-sidebar-menu"><button class="flex-center"><div class="text-md mr-2"><svg width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M4 6h24v2H4zm0 18h24v2H4zm0-12h24v2H4zm0 6h24v2H4z"></path></svg></div><span class="text-sm">Menu</span></button><button class="flex-center"><span class="text-sm">On this page</span><div class="text-md mr-2" style="transform:rotate(0deg);transition:transform 0.2s ease-out;margin-top:2px"><svg width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M22 16 12 26l-1.4-1.4 8.6-8.6-8.6-8.6L12 6z"></path></svg></div></button></div><aside class="sidebar_71eca rspress-sidebar "><div class="sidebarContainer_71eca"><div class="navTitleMask_71eca"><div class="navBarTitle_f6cde"><a href="/" class="flex items-center w-full h-full text-base font-semibold transition-opacity duration-300 hover:opacity-60"></a></div></div><div class="mt-1 sidebarContent_71eca"><div class="rspress-scrollbar" style="max-height:calc(100vh - var(--rp-nav-height) - 8px);overflow:auto"><nav class="pb-2"><a class="link_03735 menuLink_71eca cursor-pointer" target="" href="/note/index.html"><div class="menuItem_71eca mt-0.5 py-2 px-3 font-medium flex" style="font-size:14px;margin-left:0;border-radius:0 var(--rp-radius) var(--rp-radius) 0;padding-left:24px;font-weight:bold"><span class="flex-center">package 使用指南</span></div></a><a class="link_03735 menuLink_71eca cursor-pointer" target="" href="/note/reactHook.html"><div class="menuItemActive_71eca mt-0.5 py-2 px-3 font-medium flex" style="font-size:14px;margin-left:0;border-radius:0 var(--rp-radius) var(--rp-radius) 0;padding-left:24px;font-weight:bold;color:var(--rp-c-brand)"><span class="flex-center">React-Hook 使用指南</span></div></a></nav></div></div></div></aside><div class="content_edeb4 rspress-doc-container flex flex-shrink-0 mx-auto"><div class="w-full flex-1"><div><div class="rspress-doc"><!--$--><h1 id="react-hook-使用指南" class="text-3xl mb-10 leading-10 tracking-tight title_3b154">React-Hook 使用指南<a class="link_3b154 header-anchor" aria-hidden="true" href="#react-hook-使用指南">#</a></h1>
+<p class="my-4 leading-7">Hook可以帮助在组件中使用不同的React功能。 你可以使用内置的Hook或使用自定义Hook</p>
+<h2 id="usecallback" class="mt-14 mb-6 text-2xl tracking-tight title_3b154">useCallback<a class="link_3b154 header-anchor" aria-hidden="true" href="#usecallback">#</a></h2>
+<p class="my-4 leading-7">useCallback是一个允许你在<strong class="font-semibold">多次渲染</strong>中缓存函数的React Hook</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">用法<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">跳过组件的重新渲染</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">从记忆化回调中更新state</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">防止频繁出发Effect</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">优化自定义Hook</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash"><div class="rspress-code-content rspress-scrollbar"><code>import { useCallback } from &#x27;react&#x27;;
+
+export default function ProductPage({ productId, referrer, theme }) {
+  const handleSubmit = useCallback((orderDetails) =&gt; {
+    post(&#x27;/product/&#x27; + productId + &#x27;/buy&#x27;, {
+      referrer,
+      orderDetails,
+    });
+  }, [productId, referrer]);
+}
+</code></div></div>
+<p class="my-4 leading-7"><strong class="font-semibold">参数</strong></p>
+<blockquote class="border-l-2 border-solid border-divider pl-4 my-6 transition-colors duration-500 blockquote_3b154">
+<p class="my-4 leading-7">fn：想要缓存的函数。此函数可以接受任何参数并且返回任何值。在初次渲染时，React 将把函数返回给你（而不是调用它！）。当进行下一次渲染时，如果 dependencies 相比于上一次渲染时没有改变，那么 React 将会返回相同的函数。否则，React 将返回在最新一次渲染中传入的函数，并且将其缓存以便之后使用。React 不会调用此函数，而是返回此函数。你可以自己决定何时调用以及是否调用。</p>
+</blockquote>
+<blockquote class="border-l-2 border-solid border-divider pl-4 my-6 transition-colors duration-500 blockquote_3b154">
+<p class="my-4 leading-7">dependencies：有关是否更新 fn 的所有响应式值的一个列表。响应式值包括 props、state，和所有在你组件内部直接声明的变量和函数。如果你的代码检查工具 配置了 React，那么它将校验每一个正确指定为依赖的响应式值。依赖列表必须具有确切数量的项，并且必须像 [dep1, dep2, dep3] 这样编写。React 使用 Object.is 比较每一个依赖和它的之前的值。</p>
+</blockquote>
+<h2 id="userequest" class="mt-14 mb-6 text-2xl tracking-tight title_3b154">useRequest<a class="link_3b154 header-anchor" aria-hidden="true" href="#userequest">#</a></h2>
+<p class="my-4 leading-7">useRequest 是一个强大的异步数据管理的 Hooks，React 项目中的网络请求场景使用 useRequest 就够了。<a target="_blank" rel="noopener noreferrer" href="https://ahooks.js.org/zh-CN/hooks/use-request/basic" class="link_03735  link_3b154 inline-link_3b154">详细参考</a></p>
+<p class="my-4 leading-7"><strong class="font-semibold">主要功能</strong></p>
+<div class="language-bash"><div class="rspress-code-content rspress-scrollbar"><code>1. 自动请求/手动请求
+2. 轮询
+3. 防抖
+4. 节流
+5. 屏幕聚焦重新请求
+6. 错误重试
+7. loading delay
+8. SWR(stale-while-revalidate)
+9. 缓存
+</code></div></div>
+<p class="my-4 leading-7"><strong class="font-semibold">参数</strong></p>
+<div class="language-bash"><div class="rspress-code-content rspress-scrollbar"><code>第一个参数是一个异步函数，第二个参数为各项配置。同时自动管理该异步函数的loading、data、error、refresh、run、runAsync、refreshAsync
+</code></div></div>
+<p class="my-4 leading-7"><strong class="font-semibold">Result</strong></p>
+<table class="block border-collapse text-base my-5 overflow-x-auto leading-7 border-gray-light-2">
+<thead>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<th class="border border-solid px-4 py-2 text-text-1 text-base font-semibold border-gray-light-2">参数</th>
+<th class="border border-solid px-4 py-2 text-text-1 text-base font-semibold border-gray-light-2">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">data</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">service 返回的数据</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">error</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">service 抛出的异常</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">loading</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">service 是否正在执行</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">params</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">当次执行的 service 的参数数组。比如你触发了 run(1, 2, 3)，则 params 等于 [1, 2, 3]</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">run</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">手动触发 service 执行，参数会传递给 service  异常自动处理，通过 onError 反馈</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">runAsync</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">与 run 用法一致，但返回的是 Promise，需要自行处理异常。</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">refresh</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">使用上一次的 params，重新调用 run</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">refreshAsync</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">使用上一次的 params，重新调用 runAsync</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">mutate</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">直接修改 data</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">cancel</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">忽略当前 Promise 的响应</td>
+</tr>
+</tbody>
+</table>
+<p class="my-4 leading-7"><strong class="font-semibold">Options</strong></p>
+<table class="block border-collapse text-base my-5 overflow-x-auto leading-7 border-gray-light-2">
+<thead>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<th class="border border-solid px-4 py-2 text-text-1 text-base font-semibold border-gray-light-2">参数</th>
+<th class="border border-solid px-4 py-2 text-text-1 text-base font-semibold border-gray-light-2">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">manual</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">默认 false。 即在初始化时自动执行 service。如果设置为 true，则需要手动调用 run 或 runAsync 触发执行。</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">defaultParams</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">首次默认执行时，传递给 service 的参数</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">onBefore</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">service 执行前触发</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">onSuccess</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">service resolve 时触发</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">onError</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">service reject 时触发</td>
+</tr>
+<tr class="border border-solid transition-colors duration-500 even:bg-soft border-gray-light-2">
+<td class="border border-solid  px-4 py-2 border-gray-light-2">onFinally</td>
+<td class="border border-solid  px-4 py-2 border-gray-light-2">service 执行完成时触发</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reactmemo避免组件的重新渲染" class="mt-14 mb-6 text-2xl tracking-tight title_3b154">React.memo避免组件的重新渲染<a class="link_3b154 header-anchor" aria-hidden="true" href="#reactmemo避免组件的重新渲染">#</a></h2>
+<p class="my-4 leading-7"><strong class="font-semibold">一半来讲一下三种情况需要重新渲染组件：</strong></p>
+<ol class="list-decimal pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">组件内部 state 发生变化时</li>
+<li class="[&amp;:not(:first-child)]:mt-2">组件内部使用的 context 发生变化时</li>
+<li class="[&amp;:not(:first-child)]:mt-2">组件外部传递的 props 发生变化时</li>
+</ol>
+<div class="language-bash"><div class="rspress-code-content rspress-scrollbar"><code>import React, { useState } from &#x27;react&#x27;;
+
+const Child = () =&gt; {
+  console.log(&#x27;Child 渲染了&#x27;);
+  return &lt;div&gt;Child&lt;/div&gt;;
+};
+
+const MemoChild = React.memo(() =&gt; {
+  console.log(&#x27;MemoChild 渲染了&#x27;);
+  return &lt;div&gt;MemoChild&lt;/div&gt;;
+});
+
+function App() {
+  const [isUpdate, setIsUpdate] = useState(true);
+  const onClick = () =&gt; {
+    setIsUpdate(!isUpdate);
+    console.log(&#x27;点击了按钮&#x27;);
+  };
+  return (
+    &lt;div className=&quot;App&quot;&gt;
+      &lt;Child /&gt;
+      &lt;MemoChild /&gt;
+      &lt;button onClick={onClick}&gt;刷新 App &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+
+打印的内容
+  Child 渲染了  
+  MemoChild 渲染了  
+  点击了按钮  
+  Child 渲染了  
+</code></div></div><!--/$--></div><div class="rspress-doc-footer"><footer class="mt-8"><div class="xs:flex pb-5 px-2 justify-end items-center"></div><div class="flex flex-col"></div><div class="flex flex-col sm:flex-row sm:justify-around gap-4 pt-6"><div class="prev_e7091 flex flex-col"><a class="link_03735 pager-link_9b9a7 cursor-pointer" target="" href="/note/index.html"><span class="desc_9b9a7">Previous Page</span><span class="title_9b9a7">package 使用指南</span></a></div><div class="next_e7091 flex flex-col"></div></div></footer></div></div></div><div class="aside-container_edeb4"><div><div class="flex flex-col"><div class="&lt;lg:hidden"><div id="aside-container" class="relative text-sm font-medium"><div class="leading-7 block text-sm font-semibold pl-3">ON THIS PAGE</div><nav class="mt-1"><ul class="relative"><li><a href="#usecallback" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="padding-left:0;font-weight:semibold"><span class="aside-link-text block">useCallback</span></a></li><li><a href="#userequest" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="padding-left:0;font-weight:semibold"><span class="aside-link-text block">useRequest</span></a></li><li><a href="#reactmemo避免组件的重新渲染" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="padding-left:0;font-weight:semibold"><span class="aside-link-text block">React.memo避免组件的重新渲染</span></a></li></ul></nav></div></div></div></div></div></div></div></section></div></div><div id="search-container"></div></body></html>
